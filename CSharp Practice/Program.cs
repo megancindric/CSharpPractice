@@ -44,9 +44,74 @@ namespace CSharp_Practice
                 Console.WriteLine("Would you like to try again? (y/n)");
                 repeat = Console.ReadLine().ToLower();
             }
-                
 
-       
+            Console.WriteLine("\n========== Random Number Generation ==========\n");
+
+            Console.WriteLine("Generating 5 random numbers...");
+            Random rnd = new Random();
+            int rnd_num;
+
+            for (int i = 0; i < 5; i++)
+            {
+                rnd_num = rnd.Next(0, 10);
+
+                if (rnd_num >= 0 && rnd_num <= 2)
+                {
+                    Console.WriteLine($"{i+1}: The number was between 0 and 2!  It was {rnd_num}!");
+                }
+                else if (rnd_num >= 3 && rnd_num <= 5)
+                {
+                    Console.WriteLine($"{i + 1}: The number was between 3 and 5!  It was {rnd_num}!");
+                }
+                else if (rnd_num >= 6 && rnd_num <= 8)
+                {
+                    Console.WriteLine($"{i + 1}: The number was between 6 and 8!  It was {rnd_num}!");
+                }
+                else
+                {
+                    Console.WriteLine($"{i + 1}: The number was either 9 or 10!  It was {rnd_num}!");
+                }
+            }
+
+            Console.WriteLine("\n========== FizzBuzz ==========\n");
+
+            for (int i = 1;i < 101;i++)
+            {
+                if(i % 3 == 0 && i % 5 == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if(i % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (i % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                }
+            }
+
+            Console.WriteLine("\n========== Password Validator ==========\n");
+
+            string password = "Password1!";
+            Console.WriteLine("Please enter your account password:");
+            string userGuess = Console.ReadLine();
+            int guessesLeft = 5;
+            while (password!=userGuess && guessesLeft > 0)
+            {
+                Console.WriteLine("Incorrect Password!  Please try again:");
+                guessesLeft--;
+                userGuess = Console.ReadLine();
+                if (userGuess == password)
+                {
+                    Console.WriteLine("Access Granted.");
+                    Console.ReadLine();
+                }
+            }
         }
     }
 }
